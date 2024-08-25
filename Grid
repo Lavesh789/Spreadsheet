@@ -1,0 +1,30 @@
+import { useState } from 'react';
+
+const Grid = () => {
+  const rows = 25;
+  const cols = 40;
+  const totalCells = rows * cols;
+
+  const [cells, setCells] = useState(Array(totalCells).fill(""));
+
+  const handleInputChange = (index, value) => {
+    const newCells = [...cells];
+    newCells[index] = value;
+    setCells(newCells);
+  };
+
+  return (
+    <div className="grid grid-cols-40 gap-1 p-4">
+      {cells.map((cell, index) => (
+        <input
+          key={index}
+          value={cell}
+          onChange={(e) => handleInputChange(index, e.target.value)}
+          className="w-20 h-10 border border-gray-300 text-center"
+        />
+      ))}
+    </div>
+  );
+};
+
+export default Grid;
