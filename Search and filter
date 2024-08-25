@@ -1,0 +1,5 @@
+const [searchTerm, setSearchTerm] = useState('');
+
+const filteredCells = cells.filter(cell => cell.includes(searchTerm));
+
+// Render filtered cells
