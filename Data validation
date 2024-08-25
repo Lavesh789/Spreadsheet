@@ -1,0 +1,14 @@
+const validateCell = (value, type) => {
+  if (type === 'numeric' && isNaN(value)) {
+    alert("Only numeric values are allowed");
+    return false;
+  }
+  return true;
+};
+
+const handleInputChange = (index, value, type) => {
+  if (!validateCell(value, type)) return;
+  const newCells = [...cells];
+  newCells[index] = value;
+  setCells(newCells);
+};
