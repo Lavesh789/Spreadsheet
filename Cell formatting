@@ -1,0 +1,22 @@
+const Cell = ({ value, onChange }) => {
+  const [alignment, setAlignment] = useState('left');
+  const [fontSize, setFontSize] = useState('text-sm');
+
+  return (
+    <div className="relative">
+      <input
+        value={value}
+        onChange={onChange}
+        className={`${fontSize} ${alignment} w-full h-full border border-gray-300 p-2`}
+      />
+      <div className="absolute top-0 right-0">
+        {/* Add buttons to change alignment and font size */}
+        <button onClick={() => setAlignment('text-left')}>L</button>
+        <button onClick={() => setAlignment('text-center')}>C</button>
+        <button onClick={() => setAlignment('text-right')}>R</button>
+        <button onClick={() => setFontSize('text-sm')}>S</button>
+        <button onClick={() => setFontSize('text-lg')}>L</button>
+      </div>
+    </div>
+  );
+};
